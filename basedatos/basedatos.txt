@@ -1,1 +1,13 @@
-base de datos Sprint 1
+Base de datos proyecto-final
+
+Para la creación de la base de datos en MongoDB, se inició con la instalación, posteriormente a esto se realizó la configuración de las variables del sistema para que la consola
+cmd acepte los comandos de mongo. Una vez se logró esto, bastó con crear un cluster en el entorno gráfico online de la herramienta para posteriormente establecer una conexión desde
+el servidor local.
+Al formar esta conexión, se usó el comando use proyecto-final, el cual creó una nueva base de datos que almacenará las relaciones (colecciones) y los registros de los datos. Para crear
+las colecciones es necesario insertar mínimo un registro, ya que de lo contrario no se crearán las tablas y no se podrá almacenar la información. Si verificamos el modelado UML creado
+en StarUML, se usó el comando db.nombre_coleccion.insertOne({nuevo-registro}), esto se utilizó para las cinco colecciones:
+-Proyectos
+-Tipo
+-estados
+-User
+-Roles
