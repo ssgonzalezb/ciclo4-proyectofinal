@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Diagramas entidad-relación y de clases de UML en el modelado.
 Tomado de: http://www.cyta.com.ar/ta1101/v11n1a1.htm
 
@@ -12,3 +13,10 @@ fundamentales que permiten el desarrollo de una aplicación.
 
 "El modelaje de datos bajo el enfoque orientado por el modelo ER permite desarrollar muchas ideas diferentes sobre lo que pudiera constituir un buen modelo de datos, porque se trata de asuntos semánticos y no de cuestiones técnicas. Los modelos de clases UML que apoyan el diseño se parece mucho al modelo ER en el análisis de requisitos"
 por lo que suelen manejarse en varios programas como ArgoUML o StarUML, los cuales son gratuitos y manejan una infinidad de opciones además de un entorno de trabajo sencillo.
+=======
+MariaRoseroBranch
+fuentes Sprint 1.txt
+
+Fuentes usadas en el proyecto
+main
+>>>>>>> eec821c9324352bae7233ff4ff6c925514afba04
