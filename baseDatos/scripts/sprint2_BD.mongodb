@@ -8,7 +8,7 @@ db.proyects.insertOne([
   { 
     id: ObjectId(), 
     name: 'proyecto 01', 
-    descripcion: 'descripción proyecto 01', 
+    descripcion: 'Descripción proyecto 01', 
     presupuesto: 2000000,
     objetivo_general: "objetivo proyecto 01", 
     objetivos_especificos: ["objetivos especificos 1", "Objetivo especifico 2"], fecha_inicial: new Date("2021-09-15"), 
@@ -34,9 +34,9 @@ db.proyects.insertOne([
 db.usuarios.insertOne([
   {
     id: ObjectId(),
-    rol: "estudiante",
+    rol: "Estudiante",
     nombre: "Claudia Ortiz",
-    carrera: "Ingeniería de software",
+    carrera: "Ingeniería de sistemas",
     celular: "3123456789",
     fecha_ingreso: new Date("2021-09-15"),
     createdAt: new Date("2021-09-15"),
