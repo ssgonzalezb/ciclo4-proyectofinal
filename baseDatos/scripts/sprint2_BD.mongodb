@@ -7,7 +7,7 @@ use manage_proyects
 db.proyects.insertOne([
   { 
     id: ObjectId(), 
-    name: 'proyecto 02', 
+    name: 'proyecto 01', 
     descripcion: 'descripción proyecto 01', 
     presupuesto: 2000000,
     objetivo_general: "objetivo proyecto 01", 
