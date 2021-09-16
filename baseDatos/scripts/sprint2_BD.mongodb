@@ -1,1 +1,44 @@
 // MONGODB COMMANDS SPRINT 2. CREATE A DATABASE
+
+// Crear la base de datos manage_proyects
+use manage_proyects
+
+// Crear la colleción proyectos con sus propiedades
+db.proyects.insertOne([
+  { 
+    id: ObjectId(), 
+    name: 'proyecto 02', 
+    descripcion: 'descripción proyecto 01', 
+    objetivo_general: "objetivo proyecto 01", 
+    objetivos_especificos: ["objetivos especificos 1", "Objetivo especifico 2"], fecha_inicial: new Date("2021-09-15"), 
+    fecha_final: new Date("2022-09-15"), 
+    usuarios:["6142a29e9ccf4eba5637dfaa"], 
+    reporte_avance: [
+      { 
+        id: ObjectId(), 
+        usuarios_id: ["6142a29e9ccf4eba5637dfaa"], 
+        reporte: "reporte 1", 
+        estado: "inicio", 
+        fase: "inicio", 
+        createdAt: new Date("2021-09-15"), 
+        updatedAt: new Date("2021-09-15") 
+      }
+    ], 
+    createdAt: new Date("2021-09-15"), 
+    updatedAt: new Date("2021-09-15")
+  }
+])
+
+// Crear la colleción usuarios con sus propiedades
+db.usuarios.insertOne([
+  {
+    id: ObjectId(),
+    rol: "estudiante",
+    nombre: "Claudia Ortiz",
+    carrera: "Ingeniería de software",
+    celular: "3123456789",
+    fecha_ingreso: new Date("2021-09-15"),
+    createdAt: new Date("2021-09-15"),
+    updatedAt: new Date("2021-09-15"),
+  }
+])
