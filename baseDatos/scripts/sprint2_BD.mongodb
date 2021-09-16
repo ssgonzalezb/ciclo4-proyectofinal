@@ -3,12 +3,13 @@
 // Crear la base de datos manage_proyects
 use manage_proyects
 
-// Crear la colleción proyectos con sus propiedades
+// Crear la colección proyectos con sus propiedades
 db.proyects.insertOne([
   { 
     id: ObjectId(), 
     name: 'proyecto 02', 
     descripcion: 'descripción proyecto 01', 
+    presupuesto: 2000000,
     objetivo_general: "objetivo proyecto 01", 
     objetivos_especificos: ["objetivos especificos 1", "Objetivo especifico 2"], fecha_inicial: new Date("2021-09-15"), 
     fecha_final: new Date("2022-09-15"), 
