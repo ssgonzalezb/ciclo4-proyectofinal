@@ -4,7 +4,7 @@
 use manage_proyects
 
 // Crear la colección proyectos con sus propiedades
-db.proyects.insertOne([
+db.proyects.insertOne(
   { 
     id: ObjectId(), 
     name: 'proyecto 01', 
@@ -29,10 +29,10 @@ db.proyects.insertOne([
     updatedAt: new Date("2021-09-15"),
 	estado: 'Termindado'
   }
-])
+)
 
 // Crear la colleción usuarios con sus propiedades
-db.usuarios.insertOne([
+db.usuarios.insertOne(
   {
     id: ObjectId(),
     rol: "Estudiante",
@@ -43,7 +43,25 @@ db.usuarios.insertOne([
     createdAt: new Date("2021-09-15"),
     updatedAt: new Date("2021-09-15"),
   }
-])
+)
+
+// ------------------------------------------------ Update ----------------------------------------------------------------- //
+
+//Update a single proyects collection document based on a simple query
+
+db.proyects.updateOne({name: 'proyecto 01'}, {$set: {objetivo_general: "nuevo objetivo"}})
+
+//Update many proyects collection documents based on a simple query
+
+db.proyects.updateMany({estado: 'Terminado'}, {$set: {estado: "Inicial"}})
+
+//Update a single usuarios collection based on a complex query
+
+db.usuarios.updateOne({$or: [{rol: 'Estudiante'}, {rol: 'Director'}]}, {$set: {carrera: 'Ingeniería mecánica'}})
+
+//Update many usuarios collections based on a complex query
+
+db.usuarios.updateMany({$or: [{carrera: 'Ingeniería mecánica'}, {carrera: 'Ingeniería de sistemas'}]}, {$set: {rol: 'Estudiante'}})
 
 // ------------------------------------------------ Delete ----------------------------------------------------------------- //
 
