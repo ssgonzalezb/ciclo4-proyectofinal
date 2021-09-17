@@ -26,7 +26,8 @@ db.proyects.insertOne([
       }
     ], 
     createdAt: new Date("2021-09-15"), 
-    updatedAt: new Date("2021-09-15")
+    updatedAt: new Date("2021-09-15"),
+	estado: 'Termindado'
   }
 ])
 
@@ -43,3 +44,14 @@ db.usuarios.insertOne([
     updatedAt: new Date("2021-09-15"),
   }
 ])
+
+// ------------------------------------------------ Delete ----------------------------------------------------------------- //
+
+// Delete first register that fount by filter
+db.proyects.deleteOne( { name: 'proyecto 01' } )
+
+// Delete all register that match with the query
+db.proyects.deleteMany( { estado: 'Terminado' } )
+
+// Delete all documents on collection
+db.proyects.deleteMany( {} )
