@@ -31,9 +31,16 @@ db.proyects.insertOne(
     ], 
     createdAt: new Date("2021-09-15"), 
     updatedAt: new Date("2021-09-15"),
-	estado: 'Termindado'
+	  estado: 'Terminado'
   }
 )
+
+// Insert many proyects
+
+db.proyects.insertMany([
+  { id: ObjectId(), name: 'proyecto 02', descripcion: 'Descripción proyecto 02', presupuesto: 3000000,objetivo_general: "objetivo proyecto 02", objetivos_especificos: ["objetivos especificos 2.0", "Objetivo especifico 2.1"], fecha_inicial: new Date("2021-09-15"), fecha_final: new Date("2022-09-15"), usuarios:["6142a29e9ccf4eba5637dfaa"], reporte_avance: [{ id: ObjectId(), usuarios_id: ["6142a29e9ccf4eba5637dfaa"],  reporte: "reporte 2", estado: "inicio", fase: "inicio", createdAt: new Date("2021-09-15"), updatedAt: new Date("2021-09-15")}], createdAt: new Date("2021-09-15"), updatedAt: new Date("2021-09-15"), estado: 'Terminado' },
+  { id: ObjectId(), name: 'proyecto 03', descripcion: 'Descripción proyecto 03', presupuesto: 2000000,objetivo_general: "objetivo proyecto 03", objetivos_especificos: ["objetivos especificos 3.0", "Objetivo especifico 3.1"], fecha_inicial: new Date("2021-09-15"), fecha_final: new Date("2022-09-15"), usuarios:["6142a29e9ccf4eba5637dfaa"], reporte_avance: [{ id: ObjectId(), usuarios_id: ["6142a29e9ccf4eba5637dfaa"],  reporte: "reporte 3", estado: "inicio", fase: "inicio", createdAt: new Date("2021-09-15"), updatedAt: new Date("2021-09-15")}], createdAt: new Date("2021-09-15"), updatedAt: new Date("2021-09-15"), estado: 'Terminado' },
+])
 
 // Create the collection usuarios with one register
 
@@ -49,6 +56,13 @@ db.usuarios.insertOne(
     updatedAt: new Date("2021-09-15"),
   }
 )
+
+// Insert many usuarios
+
+db.usuarios.insertMany([
+  { id: ObjectId(), rol: "Director", nombre: "Claudia Ortiz", carrera: "Ingeniería mecánica", celular: "3123456789", fecha_ingreso: new Date("2021-09-15"), createdAt: new Date("2021-09-15"), updatedAt: new Date("2021-09-15")},
+  { id: ObjectId(), rol: "Estudiante", nombre: "Pepito perez", carrera: "Ingeniería mecánica", celular: "3198765432", fecha_ingreso: new Date("2021-09-15"), createdAt: new Date("2021-09-15"), updatedAt: new Date("2021-09-15")},
+])
 
 // ------------------------------------------------ Read ----------------------------------------------------------------- //
 
