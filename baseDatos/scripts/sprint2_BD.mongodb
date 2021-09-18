@@ -77,8 +77,8 @@ db.proyects.find()
 
 // Return the user record with the name corresponding to the one searched
 
-db.usuarios.find({nombre: “Claudia Ortiz”})
-db.proyects.find({objetivo_general: “objetivo general”})
+db.usuarios.find({nombre: "Claudia Ortiz"})
+db.proyects.find({objetivo_general: "objetivo general"})
 
 // Return the first record that matches
 
@@ -87,13 +87,13 @@ db.proyects.findOne()
 
 // Return the first user that matches the characteristics
 
-db.usuarios.findOne({celular: "3123456789",carrera: “Ingeniería de sistemas”})
-db.proyects.findOne({descripcion: “descripcion proyecto 01”,nombre: “proyecto 01”}) 
+db.usuarios.findOne({celular: "3123456789", carrera: "Ingeniería de sistemas"})
+db.proyects.findOne({descripcion: "descripcion proyecto 01", nombre: "proyecto 01"}) 
 
 // Modifies a single document
 
-db.usuarios.findAndModify({ query: { rol: "Estudiante" }, update: {$set: { rol: "Director"}} })
-db.proyects.findAndModify({ query: { name: "proyecto 01" } , update: {$set: { objetivo_general: "Nuevo objetivo general"}} })
+db.usuarios.findAndModify({ query: { rol: "Estudiante" }, update: {$set: { rol: "Director"}}, new: true })
+db.proyects.findAndModify({ query: { name: "proyecto 01" } , update: {$set: { objetivo_general: "Nuevo objetivo general"}}, new: true })
 
 
 // ------------------------------------------------ Update ----------------------------------------------------------------- //
