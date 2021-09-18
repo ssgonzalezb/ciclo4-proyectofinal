@@ -59,27 +59,27 @@ show collections
 // Show all records in collection (max 20)
 
 db.usuarios.find() 
-db.proyectos.find()
+db.proyects.find()
 
 // Return the user record with the name corresponding to the one searched
 
 db.usuarios.find({nombre: “Claudia Ortiz”})
-db.proyectos.find({objetivo_general: “objetivo general”})
+db.proyects.find({objetivo_general: “objetivo general”})
 
 // Return the first record that matches
 
 db.usuarios.findOne()
-db.proyectos.findOne()
+db.proyects.findOne()
 
 // Return the first user that matches the characteristics
 
 db.usuarios.findOne({celular: "3123456789",carrera: “Ingeniería de sistemas”})
-db.proyectos.findOne({descripcion: “descripcion proyecto 01”,nombre: “proyecto 01”}) 
+db.proyects.findOne({descripcion: “descripcion proyecto 01”,nombre: “proyecto 01”}) 
 
 // Modifies a single document
 
 db.usuarios.findAndModify(query :{“rol”:”Estudiante”}, update: {“rol”:”Graduado”})
-db.proyectos.findAndModify( query: {“nombre “: “proyecto 01”} , update: {“objetivo_general”: “Nuevo objetivo gen”})
+db.proyects.findAndModify( query: {“nombre “: “proyecto 01”} , update: {“objetivo_general”: “Nuevo objetivo gen”})
 
 // ------------------------------------------------ Update ----------------------------------------------------------------- //
 
