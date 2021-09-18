@@ -92,8 +92,9 @@ db.proyects.findOne({descripcion: “descripcion proyecto 01”,nombre: “proye
 
 // Modifies a single document
 
-db.usuarios.findAndModify(query :{“rol”:”Estudiante”}, update: {“rol”:”Graduado”})
-db.proyects.findAndModify( query: {“nombre “: “proyecto 01”} , update: {“objetivo_general”: “Nuevo objetivo gen”})
+db.usuarios.findAndModify({ query: { rol: "Estudiante" }, update: {$set: { rol: "Director"}} })
+db.proyects.findAndModify({ query: { name: "proyecto 01" } , update: {$set: { objetivo_general: "Nuevo objetivo general"}} })
+
 
 // ------------------------------------------------ Update ----------------------------------------------------------------- //
 
