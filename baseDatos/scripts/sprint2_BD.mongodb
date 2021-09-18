@@ -123,3 +123,31 @@ db.proyects.deleteMany( { estado: 'Terminado' } )
 
 // Delete all documents on collection
 db.proyects.deleteMany( {} )
+
+// ------------------------------------------------ Join ----------------------------------------------------------------- //
+
+// Query using join using aggregation funtion.
+
+db.proyects.aggregate([
+ { 
+   $lookup: {
+     from : "usuarios",
+     localfield: "usuarios",
+     foreignfield: "_id",
+     as: "usuarios_proyectos"
+   }
+ }
+ {$match: {"usuarios_proyectos.name":"proyecto 1"}
+ }])
+
+ db.proyects.reporte_avance.aggregate([
+ { 
+   $lookup: {
+     from : "usuarios",
+     localfield: "usuarios_id",
+     foreignfield: "_id",
+     as: "usuarios_reportes"
+   }
+ }
+ {$match: {"usuarios_reportes.estado":"inicio"}
+ }])
