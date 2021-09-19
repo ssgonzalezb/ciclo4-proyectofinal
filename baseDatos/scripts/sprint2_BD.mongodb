@@ -88,7 +88,7 @@ db.proyectos.findOne()
 // Return the first user that matches the characteristics
 
 db.usuarios.findOne({celular: 3123456789, carrera: "Ingeniería de sistemas"})
-db.proyectos.findOne({descripcion: "descripcion proyecto 01", nombre: "proyecto 01"}) 
+db.proyectos.findOne({descripcion: "Descripcion proyecto 01", name: "proyecto 01"}) 
 
 // Modifies a single document
 
