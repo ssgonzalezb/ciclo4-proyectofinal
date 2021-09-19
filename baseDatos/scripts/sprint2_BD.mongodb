@@ -8,7 +8,7 @@ use manage_proyects
 
 // Create the collection proyectos with one register
 
-db.proyects.insertOne(
+db.proyectos.insertOne(
   { 
     id: ObjectId(), 
     name: 'proyecto 01', 
@@ -37,7 +37,7 @@ db.proyects.insertOne(
 
 // Insert many proyects
 
-db.proyects.insertMany([
+db.proyectos.insertMany([
   { id: ObjectId(), name: 'proyecto 02', descripcion: 'Descripción proyecto 02', presupuesto: 3000000,objetivo_general: "objetivo proyecto 02", objetivos_especificos: ["objetivos especificos 2.0", "Objetivo especifico 2.1"], fecha_inicial: new Date("2021-09-15"), fecha_final: new Date("2022-09-15"), usuarios:["6142a29e9ccf4eba5637dfaa"], reporte_avance: [{ id: ObjectId(), usuarios_id: ["6142a29e9ccf4eba5637dfaa"],  reporte: "reporte 2", estado: "inicio", fase: "inicio", createdAt: new Date("2021-09-15"), updatedAt: new Date("2021-09-15")}], createdAt: new Date("2021-09-15"), updatedAt: new Date("2021-09-15"), estado: 'Terminado' },
   { id: ObjectId(), name: 'proyecto 03', descripcion: 'Descripción proyecto 03', presupuesto: 2000000,objetivo_general: "objetivo proyecto 03", objetivos_especificos: ["objetivos especificos 3.0", "Objetivo especifico 3.1"], fecha_inicial: new Date("2021-09-15"), fecha_final: new Date("2022-09-15"), usuarios:["6142a29e9ccf4eba5637dfaa"], reporte_avance: [{ id: ObjectId(), usuarios_id: ["6142a29e9ccf4eba5637dfaa"],  reporte: "reporte 3", estado: "inicio", fase: "inicio", createdAt: new Date("2021-09-15"), updatedAt: new Date("2021-09-15")}], createdAt: new Date("2021-09-15"), updatedAt: new Date("2021-09-15"), estado: 'Terminado' },
 ])
@@ -73,38 +73,38 @@ show collections
 // Show all records in collection (max 20)
 
 db.usuarios.find() 
-db.proyects.find()
+db.proyectos.find()
 
 // Return the user record with the name corresponding to the one searched
 
 db.usuarios.find({nombre: "Claudia Ortiz"})
-db.proyects.find({objetivo_general: "objetivo general"})
+db.proyectos.find({objetivo_general: "objetivo general"})
 
 // Return the first record that matches
 
 db.usuarios.findOne()
-db.proyects.findOne()
+db.proyectos.findOne()
 
 // Return the first user that matches the characteristics
 
 db.usuarios.findOne({celular: "3123456789", carrera: "Ingeniería de sistemas"})
-db.proyects.findOne({descripcion: "descripcion proyecto 01", nombre: "proyecto 01"}) 
+db.proyectos.findOne({descripcion: "descripcion proyecto 01", nombre: "proyecto 01"}) 
 
 // Modifies a single document
 
 db.usuarios.findAndModify({ query: { rol: "Estudiante" }, update: {$set: { rol: "Director"}}, new: true })
-db.proyects.findAndModify({ query: { name: "proyecto 01" } , update: {$set: { objetivo_general: "Nuevo objetivo general"}}, new: true })
+db.proyectos.findAndModify({ query: { name: "proyecto 01" } , update: {$set: { objetivo_general: "Nuevo objetivo general"}}, new: true })
 
 
 // ------------------------------------------------ Update ----------------------------------------------------------------- //
 
 //Update a single proyects collection document based on a simple query
 
-db.proyects.updateOne({name: 'proyecto 01'}, {$set: {objetivo_general: "nuevo objetivo"}})
+db.proyectos.updateOne({name: 'proyecto 01'}, {$set: {objetivo_general: "nuevo objetivo"}})
 
 //Update many proyects collection documents based on a simple query
 
-db.proyects.updateMany({estado: 'Terminado'}, {$set: {estado: "Inicial"}})
+db.proyectos.updateMany({estado: 'Terminado'}, {$set: {estado: "Inicial"}})
 
 //Update a single usuarios collection based on a complex query
 
@@ -117,38 +117,39 @@ db.usuarios.updateMany({$or: [{carrera: 'Ingeniería mecánica'}, {carrera: 'Ing
 // ------------------------------------------------ Delete ----------------------------------------------------------------- //
 
 // Delete first register that fount by filter
-db.proyects.deleteOne( { name: 'proyecto 01' } )
+db.proyectos.deleteOne( { name: 'proyecto 01' } )
 
 // Delete all register that match with the query
-db.proyects.deleteMany( { estado: 'Terminado' } )
+db.proyectos.deleteMany( { estado: 'Terminado' } )
 
 // Delete all documents on collection
-db.proyects.deleteMany( {} )
+db.proyectos.deleteMany( {} )
 
 // ------------------------------------------------ Join ----------------------------------------------------------------- //
 
 // Query using join using aggregation funtion.
 
-db.proyects.aggregate([
+db.proyectos.aggregate([
  { 
    $lookup: {
      from : "usuarios",
-     localfield: "usuarios",
-     foreignfield: "_id",
-     as: "usuarios_proyectos"
+     localField : " usuarios",
+     foreignField : "_id",
+     as : "usuarios_proyectos"
    }
- }
- {$match: {"usuarios_proyectos.name":"proyecto 1"}
+ },
+ {$match: {"usuarios_proyectos.rol":"estudiante"}
  }])
 
- db.proyects.reporte_avance.aggregate([
+ db.proyectos.aggregate([
  { 
    $lookup: {
      from : "usuarios",
-     localfield: "usuarios_id",
-     foreignfield: "_id",
-     as: "usuarios_reportes"
+     localField : "reporte_avance.usuarios_id",
+     foreignField : "_id",
+     as : "usuarios_reportes"
    }
+ },
+  {$match: {"reporte_avance.estado":"inicio"}
  }
- {$match: {"usuarios_reportes.estado":"inicio"}
- }])
+ ])
