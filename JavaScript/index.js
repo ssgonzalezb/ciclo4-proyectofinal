@@ -15,8 +15,12 @@ app.use(cors());
 app.use(express.json());
 
 //Connection to mongodb Atlas with mongoose
-mongoose.connect(DB_ATLAS);
-mongoose.connection.once('open', () => console.log('DB Connected'));
+mongoose.connect(DB_ATLAS, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+const connection=mongoose.connection
+connection.once('open', () => console.log('DB Connected'));
 
 //Route path on proyect
 app.get('/', (req, res) => {
