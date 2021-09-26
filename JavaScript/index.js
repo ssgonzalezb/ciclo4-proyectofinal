@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 });
 
 //Routes path on users
-// app.use('/users', userRoutes); ----------> //DESCOMENTAR CUANDO SE CREEN LOS CONTROLLERS Y LOS MODELS
+app.use('/users', userRoutes);
 
 //Routes path on proyects
 // app.use('/proyects', proyectRoutes); ----------> //DESCOMENTAR CUANDO SE CREEN LOS CONTROLLERS Y LOS MODELS
