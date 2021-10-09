@@ -1,4 +1,0 @@
-MariaRoseroBranch
-documentos Sprint 1
-Documentos usados en el proyecto
-main
